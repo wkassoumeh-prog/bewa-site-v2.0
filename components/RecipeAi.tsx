@@ -21,7 +21,9 @@ const RecipeAi: React.FC = () => {
         throw new Error("API Key missing");
       }
 
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const genAI = new GoogleGenAI(process.env.API_KEY);
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      
       const prompt = `Erstelle ein kurzes, exquisites Gourmet-Rezept für "${ingredient}". 
       Die Antwort muss auf Deutsch sein. 
       Formatierung:
@@ -31,12 +33,11 @@ const RecipeAi: React.FC = () => {
       4. Zubereitung (Nummerierte Liste, kurz gehalten).
       Halte es prägnant und passend für Wildfleisch-Liebhaber.`;
 
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: prompt,
-      });
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const text = response.text();
 
-      setRecipe(response.text || "Kein Rezept gefunden.");
+      setRecipe(text || "Kein Rezept gefunden.");
 
     } catch (err) {
       console.error(err);

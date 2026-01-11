@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import deerImg from '../assets/deer.jpg';
 
 const Hero: React.FC = () => {
   // Try the local assets folder first
-  const [imgSrc, setImgSrc] = useState('assets/deer.jpg');
+  const [imgSrc, setImgSrc] = useState(deerImg);
   
   // High quality fallback if local path fails in this environment
   const fallbackImg = "https://cdn.pixabay.com/photo/2015/10/12/15/18/deer-984573_1280.jpg";
@@ -25,7 +26,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-32 md:mt-16">
         <span className="inline-block py-1 px-3 border border-gold-500/50 rounded-full text-gold-500 text-sm font-bold tracking-widest uppercase mb-6 animate-fade-in-up backdrop-blur-md bg-forest-950/40">
           Hessen & Umgebung
         </span>

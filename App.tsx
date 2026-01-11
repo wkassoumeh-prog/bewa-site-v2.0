@@ -3,6 +3,7 @@ import { Phone, Printer, Smartphone, MapPin, Clock, CheckCircle, Truck, FileChec
 import Header from './components/Header';
 import Hero from './components/Hero';
 import RecipeAi from './components/RecipeAi';
+import flotteImg from './flotte.jpg';
 import { CONTACT_INFO, PROCESS_STEPS } from './constants';
 
 const App: React.FC = () => {
@@ -140,7 +141,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/2 order-2 md:order-1">
             <img 
-              src="flotte.jpg" 
+              src={flotteImg} 
               alt="Wild in der Natur" 
               className="rounded-2xl shadow-xl hover:shadow-2xl transition-shadow w-full object-cover h-[400px] bg-forest-100"
             />
